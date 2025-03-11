@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -21,7 +22,11 @@ class _SplashScreenState extends State<SplashScreen>
     )
     ..forward();
 
-    _animationController.addListener(() {});
+    _animationController.addListener(() {
+      if (_animationController.isCompleted && mounted) {
+        context.replace('/main');
+      }
+    });
   }
 
   @override
