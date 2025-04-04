@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:netflix_clone/feature/home/provider/today_movies_provider.dart';
 
-class TopMovieView extends StatelessWidget {
+class TopMovieView extends ConsumerWidget {
   final double height;
 
   const TopMovieView({required this.height, super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
       height: height,
       child: ClipRRect(

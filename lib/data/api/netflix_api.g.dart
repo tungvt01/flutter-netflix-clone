@@ -29,7 +29,7 @@ class _RestClient implements RestClient {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/38b954cd-63e2-42f0-9ec0-49cc7ef1256f',
+            '31c82d04-73f7-40d6-8035-b769bce87824',
             queryParameters: queryParameters,
             data: _data,
           )

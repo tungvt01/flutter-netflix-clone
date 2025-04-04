@@ -8,6 +8,6 @@ part 'netflix_api.g.dart';
 abstract class RestClient {
   factory RestClient(Dio dio, {String? baseUrl}) = _RestClient;
 
-  @GET('/38b954cd-63e2-42f0-9ec0-49cc7ef1256f')
+  @GET('31c82d04-73f7-40d6-8035-b769bce87824')
   Future<List<MovieEntity>> getTodayMovies();
 }

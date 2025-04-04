@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:netflix_clone/data/api/entity/movie_entity.dart';
 import 'package:netflix_clone/feature/home/provider/today_movies_provider.dart';
@@ -12,7 +13,7 @@ class TopTodayMoviesView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final AsyncValue<List<MovieEntity>> movies = ref.watch(
-      topTodayMoviesProvider,
+        topTodayMoviesProvider,
     );
 
     return Column(
@@ -42,8 +43,8 @@ class TopTodayMoviesView extends HookConsumerWidget {
                     ),
                   ],
                 ),
-                AsyncError() => const Text(
-                  'Oops, something unexpected happened',
+                AsyncError(:final error) => Text(
+                  'Oops, ${error.toString()}',
                 ),
                 _ => Container(),
               },
@@ -128,34 +129,39 @@ class _MovieItem extends StatelessWidget {
       width: 150,
       height: 160,
       color: Colors.black,
-      child: Stack(
-        children: [
-          rankView,
-          bannerView,
-          Positioned(
-            bottom: 0,
-            left: 50,
-            right: 0,
-            child: Center(
-              child: Column(
-                children: [
-                  // titleView,
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(3),
-                    child: SizedBox(
-                      width: 80,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [newEpisodeView, watchNowActionView],
+      child: InkWell(
+        onTap: () {
+          context.push('/detail/${movieEntity.id}');
+        },
+        child: Stack(
+          children: [
+            rankView,
+            bannerView,
+            Positioned(
+              bottom: 0,
+              left: 50,
+              right: 0,
+              child: Center(
+                child: Column(
+                  children: [
+                    // titleView,
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(3),
+                      child: SizedBox(
+                        width: 80,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [newEpisodeView, watchNowActionView],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

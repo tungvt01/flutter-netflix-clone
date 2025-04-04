@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MovieEntity {
 
- String get title; String get year; String get bannerUrl;
+ int get id; String get title; String get year; String get bannerUrl;
 /// Create a copy of MovieEntity
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $MovieEntityCopyWith<MovieEntity> get copyWith => _$MovieEntityCopyWithImpl<Movi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MovieEntity&&(identical(other.title, title) || other.title == title)&&(identical(other.year, year) || other.year == year)&&(identical(other.bannerUrl, bannerUrl) || other.bannerUrl == bannerUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MovieEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.year, year) || other.year == year)&&(identical(other.bannerUrl, bannerUrl) || other.bannerUrl == bannerUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,title,year,bannerUrl);
+int get hashCode => Object.hash(runtimeType,id,title,year,bannerUrl);
 
 @override
 String toString() {
-  return 'MovieEntity(title: $title, year: $year, bannerUrl: $bannerUrl)';
+  return 'MovieEntity(id: $id, title: $title, year: $year, bannerUrl: $bannerUrl)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $MovieEntityCopyWith<$Res>  {
   factory $MovieEntityCopyWith(MovieEntity value, $Res Function(MovieEntity) _then) = _$MovieEntityCopyWithImpl;
 @useResult
 $Res call({
- String title, String year, String bannerUrl
+ int id, String title, String year, String bannerUrl
 });
 
 
@@ -66,9 +66,10 @@ class _$MovieEntityCopyWithImpl<$Res>
 
 /// Create a copy of MovieEntity
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? year = null,Object? bannerUrl = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? year = null,Object? bannerUrl = null,}) {
   return _then(_self.copyWith(
-title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,year: null == year ? _self.year : year // ignore: cast_nullable_to_non_nullable
 as String,bannerUrl: null == bannerUrl ? _self.bannerUrl : bannerUrl // ignore: cast_nullable_to_non_nullable
 as String,
@@ -82,9 +83,10 @@ as String,
 @JsonSerializable()
 
 class _MovieEntity implements MovieEntity {
-  const _MovieEntity({required this.title, required this.year, required this.bannerUrl});
+  const _MovieEntity({required this.id, required this.title, required this.year, required this.bannerUrl});
   factory _MovieEntity.fromJson(Map<String, dynamic> json) => _$MovieEntityFromJson(json);
 
+@override final  int id;
 @override final  String title;
 @override final  String year;
 @override final  String bannerUrl;
@@ -102,16 +104,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MovieEntity&&(identical(other.title, title) || other.title == title)&&(identical(other.year, year) || other.year == year)&&(identical(other.bannerUrl, bannerUrl) || other.bannerUrl == bannerUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MovieEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.year, year) || other.year == year)&&(identical(other.bannerUrl, bannerUrl) || other.bannerUrl == bannerUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,title,year,bannerUrl);
+int get hashCode => Object.hash(runtimeType,id,title,year,bannerUrl);
 
 @override
 String toString() {
-  return 'MovieEntity(title: $title, year: $year, bannerUrl: $bannerUrl)';
+  return 'MovieEntity(id: $id, title: $title, year: $year, bannerUrl: $bannerUrl)';
 }
 
 
@@ -122,7 +124,7 @@ abstract mixin class _$MovieEntityCopyWith<$Res> implements $MovieEntityCopyWith
   factory _$MovieEntityCopyWith(_MovieEntity value, $Res Function(_MovieEntity) _then) = __$MovieEntityCopyWithImpl;
 @override @useResult
 $Res call({
- String title, String year, String bannerUrl
+ int id, String title, String year, String bannerUrl
 });
 
 
@@ -139,9 +141,10 @@ class __$MovieEntityCopyWithImpl<$Res>
 
 /// Create a copy of MovieEntity
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? title = null,Object? year = null,Object? bannerUrl = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? year = null,Object? bannerUrl = null,}) {
   return _then(_MovieEntity(
-title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,year: null == year ? _self.year : year // ignore: cast_nullable_to_non_nullable
 as String,bannerUrl: null == bannerUrl ? _self.bannerUrl : bannerUrl // ignore: cast_nullable_to_non_nullable
 as String,

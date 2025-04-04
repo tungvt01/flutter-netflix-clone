@@ -9,6 +9,7 @@ part 'movie_entity.g.dart';
 @freezed
 abstract class MovieEntity with _$MovieEntity {
   const factory MovieEntity({
+    required int id,
     required String title,
     required String year,
     required String bannerUrl,
